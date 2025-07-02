@@ -1,0 +1,32 @@
+Reflection – PP11 Task 1: Compile-Time Doubly Linked List
+
+1. Wie verknüpft man prev und next korrekt mit einem statischen Array?
+
+Die Felder prev und next zeigen auf benachbarte Elemente im Array.
+prev = &nodes[i - 1], wenn i > 0
+next = &nodes[i + 1], wenn i < (letzter Index)
+An den Rändern zeigt prev bzw. next auf NULL.
+
+2. Was sind Vorteile und Nachteile von Compile-Time gegenüber Dynamic Allocation?
+
+Vorteile:
+- Einfach zu schreiben
+- Keine Speicherlecks
+- Kein malloc/free nötig
+
+Nachteile:
+- Feste Größe (nicht flexibel)
+- Speicher wird immer vollständig belegt, auch wenn nicht alles gebraucht wird
+
+3. Wie würde man die statische Liste erweitern, um weitere Daten zu speichern?
+
+Man erweitert die DNode-Struktur um zusätzliche Felder, z. B.:
+
+typedef struct DNode {
+    void *data;
+    struct DNode *prev;
+    struct DNode *next;
+    int id;
+    char name[50];
+} DNode;
+
