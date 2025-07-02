@@ -1,0 +1,14 @@
+Reflection – PP11 Task 2: Dynamically allocated singly linked list
+
+1. Warum ist malloc notwendig beim Einfügen neuer Knoten?
+Weil jeder neue Knoten zur Laufzeit im Heap angelegt wird. Ohne malloc könnten wir nicht flexibel neue Nodes erstellen.
+
+2. Wie kann man die Liste durchlaufen und Adresse + Wert anzeigen?
+Mit einer Schleife: 
+for (SNode *p = head; p != NULL; p = p->next) {
+    printf("Node at %p: %d\n", (void*)p, p->value);
+}
+
+3. Was passiert, wenn man die Liste nicht vor Programmende freigibt?
+Dann bleibt der Speicher reserviert – das nennt man Memory Leak. Besonders bei langen Laufzeiten ist das kritisch.
+
