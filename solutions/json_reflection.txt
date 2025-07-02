@@ -1,0 +1,11 @@
+Reflection – PP11 Task 3: JSON to Linked List
+
+1. Wie wird das JSON-Array in eine Liste umgewandelt?
+Jedes Objekt im Array wird mit json_array_get extrahiert. Dann werden Werte mit json_object_get geholt und in eine dynamisch angelegte Struktur (JObject) geschrieben, die an die Liste gehängt wird.
+
+2. Welche Funktion gibt den JSON-Speicher wieder frei?
+json_decref(root); – gibt den JSON-Wurzelknoten frei.
+
+3. Wie vermeidet man Memory Leaks in diesem Programm?
+Durch free_list(head), die alle JObject-Knoten inkl. strdup(name) freigibt.
+
